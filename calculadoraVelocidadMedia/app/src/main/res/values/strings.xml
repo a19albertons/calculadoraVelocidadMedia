@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">calculadoraVelocidadMedia</string>
+    <string name="app_title">Calculadora de velocidade</string>
+    <string name="distance_label">Distancia (km)</string>
+    <string name="time_label">Tempo (horas)</string>
+    <string name="results_label">Resultados</string>
+    <string name="average_speed_label">Velocidade Media</string>
+    <string name="kmh_unit">km/h</string>
+    <string name="ms_unit">m/s</string>
+    <string name="zero_hint">0</string>
+    <string name="error_message">Todos los valores son correctos.</string>
+    <string name="error_message_alt">Dividir entre 0 esta feo use otro numero, gracias.</string>
+</resources>
