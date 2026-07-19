@@ -1,6 +1,13 @@
 plugins {
+    // plugin predeterminados
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    // Generación de documentación con Dokka
+    alias(libs.plugins.kotlin.dokka)
+
+    // Ktlint para formatear el código
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -40,8 +47,8 @@ android {
 
 dependencies {
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.9.8")
-    implementation("androidx.lifecycle:lifecycle-livedata-core-ktx:2.11.0")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.lifecycle.livedata.core.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
