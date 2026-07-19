@@ -53,46 +53,46 @@ jobs:
           path: calculadoraVelocidadMedia/app/lint/reports/lint-results-debug.html
           retention-days: 5
 
-  # # 2. Análisis de estilo de código con Ktlint
-  # ktlint-check:
-  #   name: Ktlint Check
-  #   runs-on: ubuntu-24.04
-  #   steps:
-  #     # Configura checkout
-  #     - uses: actions/checkout@v4
+  # 2. Análisis de estilo de código con Ktlint
+  ktlint-check:
+    name: Ktlint Check
+    runs-on: ubuntu-24.04
+    steps:
+      # Configura checkout
+      - uses: actions/checkout@v4
 
-  #     # Configura JDK
-  #     - name: Set up JDK ${{ env.JAVA_VERSION }}
-  #       uses: actions/setup-java@v4
-  #       with:
-  #         java-version: ${{ env.JAVA_VERSION }}
-  #         distribution: temurin
-  #         cache: 'gradle'
+      # Configura JDK
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: temurin
+          cache: 'gradle'
 
-  #     # Configura Android SDK
-  #     - name: Setup Android SDK
-  #       uses: android-actions/setup-android@v4
+      # Configura Android SDK
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
 
-  #     # Ejecuta el análisis de ktlint
-  #     - name: Run ktlintCheck
-  #       working-directory: calculadoraVelocidadMedia
-  #       run: |
-  #         chmod +x gradlew
-  #         ./gradlew -Pci --console=plain ktlintCheck
+      # Ejecuta el análisis de ktlint
+      - name: Run ktlintCheck
+        working-directory: calculadoraVelocidadMedia
+        run: |
+          chmod +x gradlew
+          ./gradlew -Pci --console=plain ktlintCheck
 
-  #     # Sube el reporte de ktlint como artefacto
-  #     - uses: actions/upload-artifact@v4
-  #       if: always()
-  #       with:
-  #         name: ktlint-report
-  #         path: AndroidIMCApp/app/lint/reports/ktlint/
-  #         retention-days: 5
+      # Sube el reporte de ktlint como artefacto
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ktlint-report
+          path: AndroidIMCApp/app/lint/reports/ktlint/
+          retention-days: 5
 
   # 3. Compilación aplicación
   assemble:
     name: Assemble Normal APK
     runs-on: ubuntu-24.04
-    needs: [lint] # Nota mental añadir más adelante ktlint
+    needs: [lint, ktlint-check]
     steps:
       # Configura checkout
       - uses: actions/checkout@v4
@@ -160,6 +160,9 @@ jobs:
     name: Run Tests
     runs-on: ubuntu-24.04
     needs: [assemble]
+    strategy:
+      matrix:
+        api-level: [24,25,26,27,28,29,30,31,32,33,34,35,36]
     steps:
       # Configura checkout
       - uses: actions/checkout@v4
@@ -183,8 +186,8 @@ jobs:
       - name: Run Android instrumented & unit tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 30
-          target: aosp_atd
+          api-level: ${{ matrix.api-level }}
+          target: default
           arch: x86_64
           profile: pixel_2
           working-directory: ./calculadoraVelocidadMedia
@@ -256,7 +259,7 @@ jobs:
           path: calculadoraVelocidadMedia/app-signed.apk
           retention-days: 5
 
-  # 6. Despliegue del APK firmado en GitHub Releases (solo para tags que comiencen con "calculadoraVelocidadMedia-")
+  # 7. Despliegue del APK firmado en GitHub Releases (solo para tags que comiencen con "calculadoraVelocidadMedia-")
   deploy:
     name: Create GitHub Release
     runs-on: ubuntu-24.04
