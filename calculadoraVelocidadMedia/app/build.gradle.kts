@@ -11,16 +11,14 @@ plugins {
 
 android {
     namespace = "com.example.calculadoravelocidadmedia"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.calculadoravelocidadmedia"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0.1"
+        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,11 +42,7 @@ android {
 }
 
 dependencies {
-    // Fragment scenario
-    debugImplementation(libs.androidx.fragment.testing.manifest)
-    androidTestImplementation(libs.androidx.fragment.testing)
 
-    // Dependencias predeterminadas
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.lifecycle.livedata.core.ktx)
     implementation(libs.androidx.core.ktx)
