@@ -44,7 +44,11 @@ android {
 }
 
 dependencies {
+    // Fragment scenario
+    debugImplementation(libs.androidx.fragment.testing.manifest)
+    androidTestImplementation(libs.androidx.fragment.testing)
 
+    // Dependencias predeterminadas
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.lifecycle.livedata.core.ktx)
     implementation(libs.androidx.core.ktx)
