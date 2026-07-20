@@ -1,18 +1,26 @@
 plugins {
+    // plugin predeterminados
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+
+    // Generación de documentación con Dokka
+    alias(libs.plugins.kotlin.dokka)
+
+    // Ktlint para formatear el código
+    alias(libs.plugins.ktlint)
 }
 
 android {
     namespace = "com.example.calculadoravelocidadmedia"
-    compileSdk = 36
+    compileSdk {
+        version = release(36)
+    }
 
     defaultConfig {
         applicationId = "com.example.calculadoravelocidadmedia"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -22,16 +30,13 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures {
         viewBinding = true
@@ -40,8 +45,8 @@ android {
 
 dependencies {
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
-    implementation("androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.2")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.lifecycle.livedata.core.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

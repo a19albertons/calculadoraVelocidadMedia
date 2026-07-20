@@ -1,0 +1,12 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.example.calculadoravelocidadmedia////PointingToDeclaration/app/com.example.calculadoravelocidadmedia/index.html
+$dokka.location:com.example.calculadoravelocidadmedia/CalculadoraModel///PointingToDeclaration/app/com.example.calculadoravelocidadmedia/-calculadora-model/index.html
+$dokka.location:com.example.calculadoravelocidadmedia/CalculadoraModel/CalculadoraModel/#/PointingToDeclaration/app/com.example.calculadoravelocidadmedia/-calculadora-model/-calculadora-model.html
+$dokka.location:com.example.calculadoravelocidadmedia/CalculadoraModel/horas/#/PointingToDeclaration/app/com.example.calculadoravelocidadmedia/-calculadora-model/horas.html
+$dokka.location:com.example.calculadoravelocidadmedia/CalculadoraModel/kilometros/#/PointingToDeclaration/app/com.example.calculadoravelocidadmedia/-calculadora-model/kilometros.html
+$dokka.location:com.example.calculadoravelocidadmedia/MainActivity///PointingToDeclaration/app/com.example.calculadoravelocidadmedia/-main-activity/index.html
+$dokka.location:com.example.calculadoravelocidadmedia/MainActivity/MainActivity/#/PointingToDeclaration/app/com.example.calculadoravelocidadmedia/-main-activity/-main-activity.html
+$dokka.location:com.example.calculadoravelocidadmedia/MainActivity/binding/#/PointingToDeclaration/app/com.example.calculadoravelocidadmedia/-main-activity/binding.html
+$dokka.location:com.example.calculadoravelocidadmedia/MainActivity/model/#/PointingToDeclaration/app/com.example.calculadoravelocidadmedia/-main-activity/model.html
+com.example.calculadoravelocidadmedia
