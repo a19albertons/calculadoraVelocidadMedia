@@ -2,7 +2,6 @@
 plugins {
     // plugin predeterminados
     alias(libs.plugins.android.application) apply false
-    alias(libs.plugins.kotlin.android) apply false
 
     // Generación de documentación con Dokka
     alias(libs.plugins.kotlin.dokka)
