@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       # Configura checkout
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Configura JDK
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       # Configura checkout
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Configura JDK
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -95,7 +95,7 @@ jobs:
     needs: [lint, ktlint-check]
     steps:
       # Configura checkout
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Configura JDK
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -131,7 +131,7 @@ jobs:
     needs: [assemble]
     steps:
       # Configura checkout
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Configura JDK
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -165,7 +165,7 @@ jobs:
         api-level: [24,25,26,27,28,29,30,31,32,33,34,35,36]
     steps:
       # Configura checkout
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Configura JDK
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -206,7 +206,7 @@ jobs:
     if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/')
     steps:
       # Configura checkout
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Configura JDK
       - name: Set up JDK ${{ env.JAVA_VERSION }}
@@ -271,7 +271,7 @@ jobs:
       contents: write
     steps:
       # Configura checkout
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Descarga el apk firmado desde el job anterior
       - name: Download signed APK 
