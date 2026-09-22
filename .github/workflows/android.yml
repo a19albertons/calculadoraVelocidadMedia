@@ -299,7 +299,7 @@ jobs:
       - uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ github.ref_name }}
-          name: calculadoraVelocidadMedia v${{ steps.version.outputs.version }}
+          name: calculadoraVelocidadMedia ${{ steps.version.outputs.version }}
           body_path: cambios.md
           files: |
             calculadoraVelocidadMedia-${{ steps.version.outputs.version }}.apk
