@@ -161,6 +161,7 @@ jobs:
     runs-on: ubuntu-24.04
     needs: [assemble]
     strategy:
+      fail-fast: false
       matrix:
         api-level: [24,25,26,27,28,29,30,31,32,33,34,35,36]
     steps:
